@@ -1,16 +1,45 @@
 ﻿var artiBpmfs = '';
 
+
+
+
+
+var updateChewing = function(){
+	var nowchars = $("#文章").val().split('');
+
+	var prev = null;
+	var newchars = nowchars.map(function(o,ind){
+		if(o == "\n" || o == "\r"){
+			prev = o;
+			return o;
+		}
+
+		if(ind == 0 || prev =="\n"){
+			prev = o;					
+			return window.chars[o];
+		}else{
+			prev = o;					
+			return " "+window.chars[o];
+		}
+	});
+
+	$("#文章注音").val(newchars.join(""));
+};
+
+
+
 onArticleChange();
 onArtiBpmfChange();
 
 document.querySelector('#文章').addEventListener('keyup', onArticleChange);
 document.querySelector('#文章注音').addEventListener('keyup', onArtiBpmfChange);
 
-
 function onArticleChange(e) {
-	var content = document.querySelector('#文章').value;
-	
+	updateChewing();
 	var node = document.querySelector('article');
+
+
+	var content = document.querySelector('#文章').value;	
 	var ps = content.split('\n');
 
 	node.innerHTML = '';
