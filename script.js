@@ -14,6 +14,10 @@ var updateChewing = function(){
 			return o;
 		}
 
+		if(o == " "){
+			return " ";
+		}
+
 		if(ind == 0 || prev =="\n"){
 			prev = o;					
 			return window.chars[o] || "-";
