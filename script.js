@@ -16,10 +16,10 @@ var updateChewing = function(){
 
 		if(ind == 0 || prev =="\n"){
 			prev = o;					
-			return window.chars[o];
+			return window.chars[o] || " ";
 		}else{
 			prev = o;					
-			return " "+window.chars[o];
+			return " " + (window.chars[o] || " ");
 		}
 	});
 
