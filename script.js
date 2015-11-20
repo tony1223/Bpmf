@@ -67,7 +67,7 @@ function onArticleChange(e) {
 			sNode.addEventListener('touchstart', onWordSelect);
 		}
 	}
-	
+	onArtiBpmfChange();
 }
 function onArtiBpmfChange(e) {
 	artiBpmfs = document.querySelector('#文章注音').value.trim().split(/\s+/);
